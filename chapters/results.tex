@@ -1,0 +1,71 @@
+\chapter{Results and Discussion}
+\label{chapter:results_and_discussion}
+
+\section{Results}
+
+% The result of this thesis is a part of the software program J2EO written in Java/Kotlin. The implemented part includes EO Abstract Syntax Tree (AST), an algorithm that prints EO AST to the source text file, and an algorithm that translates selected Java AST nodes to EO AST.
+
+% % TODO: move to the introduction?
+% The main use case for J2EO is to translate real-world Java projects to EO to later perform static analysis with other Polystat projects. Thus, it is important to translate large projects without failures and maximize the amount of translated Java features. Producing full semantically-equivalent code is not a requirement for static analysis.
+
+% As the benchmark for result assessment, I have picked several big projects heavily used in production systems.
+
+% The table of used projects with their corresponding actual commit hashes is listed in \tab{table:benchmark_projects}:
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{| c | c | c | p{5cm} |} 
+%         \hline
+%         Project & Java version & LoC & Actual commit hash \\
+%         \hline
+%         Hadoop \cite{hadoop_repo} & 8 & 1631465 & ec0ff1dc04b2ced199d7- 1543a8260e9225d9e014 \\
+%         \hline
+%         Kafka \cite{kafka_repo} & 8 & 499373 & f36de0744b915335de6b- 636e6bd6b5f1276f34f6 \\
+%         \hline
+%         J2EO \cite{j2eo_repo} & 17 & 41200 & a762a903eb55f3e11403-d4630654f4c89397d75a \\
+%         \hline
+%     \end{tabular}
+%     \caption{Java projects used for benchmarking}
+%     \label{table:benchmark_projects}
+% \end{table}
+
+% The version of J2EO used is 0.5.3 and is present on the GitHub repository \cite{j2eo_repo} of the project.
+
+% Lines of Code (LoC) metric was computed using \ff{cloc} utility \cite{cloc} and includes only physical Java lines, excluding empty lines and comments.
+
+% Given software versions and commit hashes allow readers to reproduce results given in the text on their own machine.
+
+% \subsection{Designed projections}
+
+% Theoretical projections for many Java constructs and features are developed as a part of this thesis. The full list is present in Chapter \ref{chapter:implementation}.
+
+% % write about upcoming paper
+
+% \subsection{Implemented projections}
+
+% As of the time of the writing, projections implemented in J2EO cover mapping of classes, their static and non-static members, static and non-static methods, support for most of the statements which make sense to statically analyze. Any project structure is parsed correctly, so both Maven and Gradle projects with arbitrary directory structure may be passed as input.
+
+% Priority of projection implementation was actively discussed with the analyzer development team, so included mappings are actual for the future development of the entire super project.
+
+% The supported version of Java is 17 and given it is backward compatible, any lower-version projects are also supported. Several entries in the benchmarking tables confirm that.
+
+% \subsection{Assessment of results}
+
+% Objective assessment of results is not possible as of the time of writing, because Polystat analyzer is still in early stages of development and thus no full pipeline of analysis exists.
+% The main method of assessment used is to translate large Java projects and check the correctness of produced EO files by hand. Benchmarked projects provide a several million lines of code and the fact that translation successfully terminates is promising for the future of the project.
+
+
+% \section{Discussion and Conclusion}
+
+% The text presented an overview of used technologies, including Java, EOLANG and $\varphi$-calculus, then provided an assessment of these technologies for the goals of the project, theoretical projections of constructions between the source and target languages, and finally described the implementation of the tool itself.
+
+% The J2EO project already covers a significant range of Java features, facilitating the future development of the Polystat analyzer. Since Polystat heavily depends on the output of transpilers, its development was stalled for a long period and thus no rich analysis results are produced as of the time of writing.
+
+% J2EO/Polystat combination is still under active development. However, according to the results of J2EO, EO provides a necessary base for the representation of other languages. This combination has a solid chance to become competitive with other popular Java static analyzers, such as PMD, SpotBugs, and IntelliJ IDEA built-in static analyzer (which is not available standalone).
+
+% The ongoing research on the Java to EOLANG projections and J2EO translator tool will be released to academic community in the upcoming paper later this year.
+
+% \section{Acknowledgements}
+% \label{acknowledgements}
+
+% Big thanks to Nikolai Kudasov for help and consultation related to EOLANG, my other team members, including Eugene Zouev, Egor Klementev, Ilya Miluoshin for collaborative work on J2EO, Yegor Bugayenko for releasing phi-calculus and EOLANG compiler, the open-source community for contributing to EOLANG repository and Rabab Marouf for teaching the Academic Writing course.

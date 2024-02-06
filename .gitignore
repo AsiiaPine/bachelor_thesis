@@ -1,0 +1,11 @@
+*.aux
+*.toc
+*.xdv
+*.fls
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.out
+*.log
+.vscode/*
+.git*

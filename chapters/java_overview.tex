@@ -1,0 +1,108 @@
+\chapter{Java Overview}
+\label{chapter:java_overview}
+
+The incoming data of the project is Java source code, thus, the separate section is dedicated to outlining the syntax and semantics of the language. In-depth description of Java specification is available on the Oracle website \cite{java_specification}.
+
+
+\section{Project structure}
+
+Running compiler manually on every file is tedious and not practical, so people use build systems. Build systems dictate a unified structure of the project. Since most of the input for J2EO consists of such projects, it is essential to understand the structure of a Java project, i.e., the structure of the input data, to create a smarter tool.
+
+Typically, Java projects consist of:
+\begin{itemize}
+    \item Build system configuration files; two major ones are Maven
+        \cite{maven_repo} and Gradle \cite{gradle_repo}. Project dependencies
+        are declared in these files as well;
+    \item \ff{src} directory with source code;
+    \item Markdown files, including README file, wiki, documentation, etc.;
+    \item Optionally, configuration for CI/CD and other tools;
+\end{itemize}
+
+Complex projects may break up their structure into modules, which are
+essentially mini-projects isolated under a subdirectory with the file structure specified above.
+
+Depending on the configuration of build system, source code may be split into different source sets \cite{gradle_sourcesets}, commonly \ff{main} and \ff{test}. In this case, \ff{src} directory includes subdirectories for each source set which act as a root for
+packages. In the case of a single source set for a project, \ff{src} acts as a root of the source set\footnote[1]{From now on, until the end of this chapter, the text assumes that paths start from the source set directory}.
+
+The translated EO code is passed to the static analyzer which detects problems in the current project alone. Thus, dependencies should not be included in the resulting code in any way. This allows the project to ignore the configuration of the build system and only process \ff{src} directory.
+
+
+\subsection{Source code directory structure}
+
+Java projects have a strictly defined source directory structure
+\cite{java_specification}: nested directories correspond to the package name
+specified in the source file, and the file name corresponds to the class name specified
+inside the file. For example, file \ff{Main.java} located with a specified package
+\ff{org.polystat.j2eo} should be placed strictly into
+\ff{org/polystat/j2eo/Main.java}\footnote[2]{The document and project use UNIX-style notations for file paths since UNIX
+systems are most popular among developers, who are the target audience of both
+this thesis and the project.}.
+
+\subsection{Language entities visibility}
+\label{subsection:java_visibility}
+
+Java provides four levels of visibility for all the entities:
+\begin{itemize}
+    \item \ff{public} --- available from any class from any package;
+    \item \ff{protected} --- available from any class that inherits from the
+        class that contains the entity;
+    \item \ff{private} --- available from the current class only;
+    \item package-private --- available from any class from the current package.
+        When no visibility modifier is specified, package-private is used by
+        default.
+\end{itemize}
+
+
+\section{Source code file structure}
+
+Java implements a traditional OOP paradigm. In Java, the only allowed top-level constructs are class and interface. Consequently, there are no global variables available directly. They can be simulated using static members in classes, though.
+
+Java source code file has a strict structure, which includes:
+\begin{itemize}
+    \item Package declaration --- optional for a single-file project, but required for multi-file projects;
+    \item imports --- optional;
+    \item class or interface declarations. Strictly one public class
+        should be present in the file, so importing it deterministically
+        resolves the imported class.
+\end{itemize}
+
+\subsection{Class contents}
+
+Extensive list of constructs allowed inside a Java class:
+\begin{itemize}
+    \item static members (variables);
+    \item static methods;
+    \item non-static members;
+    \item non-static methods;
+    \item nested classes/interfaces.
+\end{itemize}
+The list is provided here so boundaries of what has to be projected inside of class is clear in the Chapter \ref{chapter:implementation}.
+
+In-depth information about Java syntax is omitted from the thesis, since syntax of the language is not the main topic of the text. Interested readers may refer to \cite{java_specification} for the details.
+
+Example of a Java class is provided below:
+
+\begin{ffcode}
+package org.polystat.j2eo
+
+import org.polystat.j2eo.StaticData
+
+public class Main {
+    private final dataToPrint = StaticData.helloWorldText;
+
+    public static void main(String[] args) {
+        System.out.println(dataToPrint);
+    }
+}
+\end{ffcode}
+
+
+\subsection{Interface structure}
+
+The original meaning of interfaces in Java was to split declaration and definition of entity, facilitating Encapsulation/Data Hiding.
+
+Though, in recent versions of the language interface feature list has grown, adding \emph{default} methods. This allowed interfaces to have the definition alongside the declaration, essentially allowing the implementation of multiple inheritance in Java.
+
+In object-oriented languages, this unavoidably leads to the diamond problem \cite{sakkinen1989disciplined} --- situation when several inherited interfaces of a class contain a default method with the same name. Different languages solve this problem in different ways. Java compiler aborts compilation whenever it detects such a case.
+
+
