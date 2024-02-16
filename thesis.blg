@@ -1,0 +1,18 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
+[129] biber:340> INFO - === Пт фев 16, 2024, 16:06:40
+[149] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[229] Biber.pm:979> INFO - Found 17 citekeys in bib section 0
+[248] Biber.pm:4419> INFO - Processing section 0
+[261] Biber.pm:4610> INFO - Looking for bibtex file 'ref.bib' for section 0
+[263] bibtex.pm:1713> INFO - LaTeX decoding ...
+[296] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
+[467] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[467] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[468] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[468] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[485] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[495] bbl.pm:763> INFO - Output to thesis.bbl
+[495] Biber.pm:131> WARN - Duplicate entry key: '1990_optic' in file 'ref.bib', skipping ...
+[495] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_9EJm/e800e2552f53b910154f366d4c3730d7_2732.utf8, line 43, warning: 126 characters of junk seen at toplevel
+[495] Biber.pm:133> INFO - WARNINGS: 2
