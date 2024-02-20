@@ -1,16 +1,16 @@
 # Fdb version 4
-["biber thesis"] 1708441622 "thesis.bcf" "thesis.bbl" "thesis" 1708441629 0
-  "thesis.bcf" 1708441627 114152 5df410d3cae1ba20773dfcafe5bf9e50 "xelatex"
+["biber thesis"] 1708449851 "thesis.bcf" "thesis.bbl" "thesis" 1708449860 0
+  "thesis.bcf" 1708449858 114222 4eb3e82676f61ebe616b80fd9cbe8910 "xelatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1708441627 "thesis.xdv" "thesis.pdf" "thesis" 1708441629 0
-  "thesis.xdv" 1708441627 373552 9ab0b2351e7697754fe20afb0a0d9dfc "xelatex"
+["xdvipdfmx"] 1708449859 "thesis.xdv" "thesis.pdf" "thesis" 1708449860 0
+  "thesis.xdv" 1708449858 375592 8ed6c37bb1ab729d48ffbc48d92ea013 "xelatex"
   (generated)
   "thesis.pdf"
   (rewritten before read)
-["xelatex"] 1708441625 "/home/asiia/Documents/Thesis/ThesisFinal/thesis.tex" "thesis.xdv" "thesis" 1708441629 0
+["xelatex"] 1708449856 "/home/asiia/Documents/Thesis/ThesisFinal/thesis.tex" "thesis.xdv" "thesis" 1708449860 0
   "/dev/null" 1708409064 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/asiia/Documents/Thesis/ThesisFinal/thesis.tex" 1708436160 3629 1a61b31ae5e46cbeb0b46a701296e14f ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -234,19 +234,19 @@
   "/usr/share/texmf-dist/tex/latex/zed-csp/zed-csp.sty" 1704400182 31787 bd97b6f8c37a7c9064f057eb2f29c352 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1704400182 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1707056950 9219864 b6eabb63fefb6c132e80786291620ecf ""
-  "chapters/abstract.aux" 1708441627 5446 ff697891ec557ec23ec678f2d0bc9ec5 "xelatex"
+  "chapters/abstract.aux" 1708449858 5446 ff697891ec557ec23ec678f2d0bc9ec5 "xelatex"
   "chapters/abstract.tex" 1703492472 1642 d2603e30201676acd5bc589fb9370c44 ""
-  "chapters/glossaries.aux" 1708441627 5564 8abd351f15958bb11a05252ee9ea69d0 "xelatex"
+  "chapters/glossaries.aux" 1708449858 5564 8abd351f15958bb11a05252ee9ea69d0 "xelatex"
   "chapters/glossaries.tex" 1708431734 1820 ea7153b4d7df7e1d37b0525540d0db84 ""
-  "chapters/implementation.aux" 1708441627 5590 b7d85a2b0abdeec508b48d9e95c8bdbb "xelatex"
+  "chapters/implementation.aux" 1708449858 5590 0993941d6ec50ebadeeb7e3ddf1a7f54 "xelatex"
   "chapters/implementation.tex" 1706364559 16732 c7f6d07d9816a25efc4528ca89953fe0 ""
-  "chapters/introduction.aux" 1708441627 5703 8803c8191ea90b7a6ba6c0215c8a7bbe "xelatex"
+  "chapters/introduction.aux" 1708449858 5703 8803c8191ea90b7a6ba6c0215c8a7bbe "xelatex"
   "chapters/introduction.tex" 1708435249 4961 310c8af0d02289be0799ecc737157094 ""
-  "chapters/literature_review.aux" 1708441627 10968 a0d571754d3f39e4155df1ce1f7cda2c "xelatex"
-  "chapters/literature_review.tex" 1708441623 23823 6844e1108181d9d9440777709601ad2a ""
-  "chapters/optical_modeling.aux" 1708441627 9192 6534ad08473bd18254f9055876e6c2df "xelatex"
+  "chapters/literature_review.aux" 1708449858 10968 beb0d22d0678060f7ceeabb65cdf84d4 "xelatex"
+  "chapters/literature_review.tex" 1708449848 23867 8a99e3b86946552dea914bd526ae3cdc ""
+  "chapters/optical_modeling.aux" 1708449858 9192 31cec8f4a6c87771f675b91c6840303c "xelatex"
   "chapters/optical_modeling.tex" 1708439852 7976 9898a805a0685b0a226667c84e7f772a ""
-  "chapters/results.aux" 1708441627 5716 29f7706a38be60848cb71741eed4fb2a "xelatex"
+  "chapters/results.aux" 1708449858 5716 a33ddfd7f04330aee9b0b0cb01599ec0 "xelatex"
   "chapters/results.tex" 1706347259 5204 47bedd1509043f597d6a5906b40eaa4e ""
   "ffcode.sty" 1662235254 3026 faac0a553ea0abfe96b8308be014645a ""
   "figs///LR/capacitive_sensors.png" 1708418205 176058 ae4affb73f300952509c0de35f50ab26 ""
@@ -264,12 +264,12 @@
   "figs/Microscopic_image.png" 1707824469 611437 4c427a457ce9bef462f6afe63156fb3f ""
   "figs/oblique_draft.jpg" 1707823573 70965 a4dcb21d282efb4a8c25d8f9ee2a3749 ""
   "figs/simplified_model_notebook.jpg" 1707867321 87346 aacc6deb35ac1bbcd7f0a840ab9af8ec ""
-  "thesis.aux" 1708441627 10627 32701a33c327b23595413305aa919d8d "xelatex"
-  "thesis.bbl" 1708441623 37740 444c0590ce7515edc7293b1d154575e7 "biber thesis"
-  "thesis.out" 1708441627 3465 b72f74112e9522e6cd5b1c3439800b15 "xelatex"
-  "thesis.run.xml" 1708441627 2444 bed53add8fd4194cae9e036879e2386f "xelatex"
+  "thesis.aux" 1708449858 10770 f491b0d773a24a1a63daacc3d0a8addc "xelatex"
+  "thesis.bbl" 1708449851 38262 35ee0c75e8aafd7a028149ac8469d94c "biber thesis"
+  "thesis.out" 1708449858 3465 b72f74112e9522e6cd5b1c3439800b15 "xelatex"
+  "thesis.run.xml" 1708449858 2444 bed53add8fd4194cae9e036879e2386f "xelatex"
   "thesis.tex" 1708436160 3629 1a61b31ae5e46cbeb0b46a701296e14f ""
-  "thesis.toc" 1708441627 2032 41f7edcc4b0cb991ae080f995a5c375c "xelatex"
+  "thesis.toc" 1708449858 2032 41f7edcc4b0cb991ae080f995a5c375c "xelatex"
   "title.pdf" 1699290965 33955 decf7d93bda915ddf7c4493597c3c8c9 ""
   (generated)
   "chapters/abstract.aux"
