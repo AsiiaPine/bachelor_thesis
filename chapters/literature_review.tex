@@ -21,6 +21,45 @@ In Section \ref{lr_constructions}, an examination of the construction of multi-a
 % \ref{lr_calibration} The current section focus on the decoupling methods based on calibration. 
 
 Finally, in Section \ref{lr_conclusion}, the research gap in this field is identified.
+
+\section{Metrics}
+% ?????????????????????????????
+To align with the reader in the terminology used, this section presents the metrics and their definitions used for multi-axis force sensors.
+% In the section the metrics applied to the multi-axis force sensors are described for further 
+stiffness, nominal values, isotropy
+In a coupled sensor an axis force component produces signal in more then one measurement cell, therefore calibration becomes more complicated.
+% isotropy - какой контекст
+%  взять характеристики датчика из учебника, которые подходят. Прочитать раздел с датчиками силы.
+\subsection{Isotropy}
+isotropy - exhibiting properties (such as velocity of light transmission) with the same values when measured along axes in all directions \cite{isotropic}
+
+\subsection{Hysteresis}
+
+In certain systems, the sensor output varies based on the direction of load application. 
+The difference between the outputs is referred to as hysteresis error \cite{handbook_sensors}, which represents the memory of the system.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{/LR/hysteresis.png}
+    \caption{Diagram illustrating the relationship between stimulus and signal in a system with hysteresis. Adapted from \cite[Fig. 2.11]{handbook_sensors}.}
+    \label{fig:hysteresis}
+\end{figure}    
+
+\subsection{Coupling}
+\label{lr_coupling}
+
+One of the main metrics for multi-axial force sensor is degree of coupling, which determines the complexity of calibration matrix of a sensor 
+\cite{decoupling_sliding_structure,multi_axis_force_sensors_review,CHAO1997105}. 
+Dimensions coupling problem is one of the most common problems for multi-axial force sensors \cite{NN_decoupling}.
+The degree of coupling among the axes directly impacts the accuracy of the sensor and the complexity of calibration 
+\cite{decoupling_sliding_structure, multi_axis_force_sensors_review, CHAO1997105}. 
+In a coupled sensor, an axis force component can produce signals in more than one measurement cell, 
+thereby complicating the calibration process. However, designing and manufacturing highly decoupled structures can be challenging 
+\cite{shape_optimization_decoupled}.
+
+To reduce axis dependence one may change structure of the sensor or perform high precision calibration. 
+Existing solutions for multi-axial force sensor structures are presented in the \ref{lr_constructions} section.
+
+
 \section{Pressure cells types}
 \label{lr_pressure_cell_types}
 The pressure sensors are the main measuring components used for multi-axial force sensors. The output of the sensors in mapped via transition function into the force/torque terms. 
@@ -64,6 +103,7 @@ The capacitance changes when a load is applied to the diaphragm surface.
 Capacitive pressure sensors have broad measurement range, high sensitivity, accuracy and reliability, absence of contamination risk, large range of working temperatures (-70 \textdegree C to 400 \textdegree C).
 The sensors are low-cost, highly sensitive devices mostly used in exceptional circumstances, such as miniature or even MEMS force sensors \cite*{multi_axis_force_sensors_review} and harsh environmental conditions.
 
+Hysteresis 0.35 \% \cite{pressure_capac_hysteresis}, 1.7 \% \cite{pressure_capac_hysteresis_2}.
 
 \subsection{Electrical Resistance Strain Gauge}
 The principle behind Electrical Resistance Strain Gauges (ERSGs) is the change in resistance caused 
@@ -85,6 +125,9 @@ face challenges in signal processing. These challenges include sensitivity to te
 the need for regular calibration, and difficulties in maintenance after the substrate undergoes plastic deformation.
 % TODO: rephrase
 Regarding response times, typical values of this measuring principle range from 1 to 10 ms. \cite{pressure_sens_calibration_stat_dyn}
+
+The hysteresis range for 6-axis force sensor : 0.26 – 0.73 \% \cite{six_axis_ERSG_hyst1},  0.6–1.3 \% \cite{six_axis_ERSG_hyst2}.
+
 
 \subsection{Fiber Bragg grating}
 Fiber Bragg gratings (FBG) are the most popular optical pressure measurement methods. The FBG sensor is a specific type 
@@ -126,38 +169,6 @@ The sensors using this measuring principle have a response time of about 100 $\m
 
 % TODO: continue
 The described characteristics of force sensor types force me to use the one in the research and try to apply the measurement principle in cells of my multi-axial force sensor.
-
-\section{Metrics}
-stiffness, nominal values, isotropy
-In a coupled sensor an axis force component produces signal in more then one measurement cell, therefore calibration becomes more complicated.
-% isotropy - какой контекст
-%  взять характеристики датчика из учебника, которые подходят. Прочитать раздел с датчиками силы.
-\subsection{Hysteresis}
-% Add hysteresis graphs.  взять из учебника.
-In certain systems, the sensor output varies based on the direction of load application. 
-The difference between the outputs is referred to as hysteresis error \cite{handbook_sensors}, which represents the memory of the system.
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{/LR/hysteresis.png}
-    \caption{Diagram illustrating the relationship between stimulus and signal in a system with hysteresis. Adapted from \cite[Fig. 2.11]{handbook_sensors}.}
-    \label{fig:hysteresis}
-\end{figure}    
-
-\subsection{Coupling}
-\label{lr_coupling}
-
-One of the main metrics for multi-axial force sensor is degree of coupling, which determines the complexity of calibration matrix of a sensor 
-\cite{decoupling_sliding_structure,multi_axis_force_sensors_review,CHAO1997105}. 
-Dimensions coupling problem is one of the most common problems for multi-axial force sensors \cite{NN_decoupling}.
-The degree of coupling among the axes directly impacts the accuracy of the sensor and the complexity of calibration 
-\cite{decoupling_sliding_structure, multi_axis_force_sensors_review, CHAO1997105}. 
-In a coupled sensor, an axis force component can produce signals in more than one measurement cell, 
-thereby complicating the calibration process. However, designing and manufacturing highly decoupled structures can be challenging 
-\cite{shape_optimization_decoupled}.
-
-To reduce axis dependence one may change structure of the sensor or perform high precision calibration. 
-Existing solutions for multi-axial force sensor structures are presented in the \ref{lr_constructions} section.
 
 \section{Calibration}
 \label{lr_calibration}
