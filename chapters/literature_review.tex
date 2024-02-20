@@ -22,12 +22,26 @@ In Section \ref{lr_constructions}, an examination of the construction of multi-a
 
 Finally, in Section \ref{lr_conclusion}, the research gap in this field is identified.
 \section{Pressure cells types}
-
 \label{lr_pressure_cell_types}
-% датчики стресса и 
-% добавить пьезоэлектрический датчик, добавить 
-\subsection{Piezoresistors}
+The pressure sensors are the main measuring components used for multi-axial force sensors. The output of the sensors in mapped via transition function into the force/torque terms. 
+The choice of the measuring components defines the hysteresis, linearity, span and resolution of the whole system. Thereby, several pressure sensors types will be described in the subsection.
+
+\subsection{Piezoelectric sensor}
+Piezoelectric pressure sensor consists of a thin silicon diaphragm as elastic part and a piezoelectric gauge resistor \cite{handbook_sensors}.
+The single crystal silicon has exceptional elastic characteristics, therefore no hysteresis occur in the system \cite{handbook_sensors}.
+
+The piezoelectric element has an AC effect, allowing the piezoelectric pressure sensor to convert pressure changes into an output signal. 
+When a load is applied to the sensor, piezoelectric crystals generate voltage across the sides of the crystal, related to amount of bending load.
+On other hand, it may not measure steady-state pressure \cite{handbook_sensors}. 
+
+The main issue with crystal resonators in pressure sensors is that the resonator must have the highest possible quality factor and be isolated from the environment. 
+However, the quality factor of the crystal is reduced when a load is applied \cite{handbook_sensors}.
+
+Even when a multi crystal structure is used in the sensors, the total wave reflection occurs and effect the quality factor \cite{handbook_sensors}.
+
+
 \subsection{Capacitive sensor}
+
 The capacitance of a flat capacitor can be determined using equation (\ref*{eq:capacitance}). 
 This formula describes the connection between capacitance, plate area, and the distance between the plates of the device. 
 Changes in distance and area result in variations in capacitance, which is utilized in capacitance-based pressure sensors to measure changes in distance.
@@ -49,6 +63,7 @@ The capacitance changes when a load is applied to the diaphragm surface.
 
 Capacitive pressure sensors have broad measurement range, high sensitivity, accuracy and reliability, absence of contamination risk, large range of working temperatures (-70 \textdegree C to 400 \textdegree C).
 The sensors are low-cost, highly sensitive devices mostly used in exceptional circumstances, such as miniature or even MEMS force sensors \cite*{multi_axis_force_sensors_review} and harsh environmental conditions.
+
 
 \subsection{Electrical Resistance Strain Gauge}
 The principle behind Electrical Resistance Strain Gauges (ERSGs) is the change in resistance caused 
@@ -106,22 +121,29 @@ The properties associated with hysteresis and the sensor's nominal range are pri
 
 \end{figure}
 
-% TODO: rephrase
-Other advantages of this type of pressure sensor that are particularly important in some industrial applications are its long transmission distance and the low chemical reactivity of the material, which is ideal
-for operating in environments with a risk of explosion, in addition to being intrinsically safe [25]. Regarding response time, typical values of this measuring principle can reach values about $100 \mu$s. \cite{pressure_sens_calibration_stat_dyn}
-
-% TODO: rephrase
-In terms of force, the sensor has an average resolution of 0.1 N over a 200 N measurement range \cite*{OPTIC_CELL_FOR_HAND}.
+Other advantages of this type of pressure sensor, particularly important in certain industrial applications, include its long transmission distance and low chemical reactivity, making it ideal for operation in explosive-risk environments and intrinsically safe. 
+The sensors using this measuring principle have a response time of about 100 $\mu$s and an average force resolution of 0.1 N over a 200 N measurement range \cite{pressure_sens_calibration_stat_dyn}.
 
 % TODO: continue
-The described characteristics of the sensor type force me to use the one in the research and try to apply the measurement principle in cells of my multi-axial force sensor.
+The described characteristics of force sensor types force me to use the one in the research and try to apply the measurement principle in cells of my multi-axial force sensor.
 
 \section{Metrics}
 stiffness, nominal values, isotropy
 In a coupled sensor an axis force component produces signal in more then one measurement cell, therefore calibration becomes more complicated.
-% Add hysteresis graphs.  взять из учебника.
 % isotropy - какой контекст
 %  взять характеристики датчика из учебника, которые подходят. Прочитать раздел с датчиками силы.
+\subsection{Hysteresis}
+% Add hysteresis graphs.  взять из учебника.
+In certain systems, the sensor output varies based on the direction of load application. 
+The difference between the outputs is referred to as hysteresis error \cite{handbook_sensors}, which represents the memory of the system.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{/LR/hysteresis.png}
+    \caption{Diagram illustrating the relationship between stimulus and signal in a system with hysteresis. Adapted from \cite[Fig. 2.11]{handbook_sensors}.}
+    \label{fig:hysteresis}
+\end{figure}    
+
 \subsection{Coupling}
 \label{lr_coupling}
 
