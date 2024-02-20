@@ -1,18 +1,18 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[60] biber:340> INFO - === Вт фев 20, 2024, 11:42:11
-[71] Biber.pm:419> INFO - Reading 'thesis.bcf'
-[127] Biber.pm:979> INFO - Found 18 citekeys in bib section 0
-[140] Biber.pm:4419> INFO - Processing section 0
-[147] Biber.pm:4610> INFO - Looking for bibtex file 'ref.bib' for section 0
-[149] bibtex.pm:1713> INFO - LaTeX decoding ...
+[63] biber:340> INFO - === Вт фев 20, 2024, 12:56:13
+[74] Biber.pm:419> INFO - Reading 'thesis.bcf'
+[129] Biber.pm:979> INFO - Found 18 citekeys in bib section 0
+[141] Biber.pm:4419> INFO - Processing section 0
+[148] Biber.pm:4610> INFO - Looking for bibtex file 'ref.bib' for section 0
+[150] bibtex.pm:1713> INFO - LaTeX decoding ...
 [168] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
-[316] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[316] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[316] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[316] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[327] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[332] bbl.pm:763> INFO - Output to thesis.bbl
-[333] Biber.pm:131> WARN - Duplicate entry key: '1990_optic' in file 'ref.bib', skipping ...
-[333] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Rud5/e800e2552f53b910154f366d4c3730d7_46363.utf8, line 43, warning: 126 characters of junk seen at toplevel
-[333] Biber.pm:133> INFO - WARNINGS: 2
+[301] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[301] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[301] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[301] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[312] bbl.pm:660> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[317] bbl.pm:763> INFO - Output to thesis.bbl
+[317] Biber.pm:131> WARN - Duplicate entry key: '1990_optic' in file 'ref.bib', skipping ...
+[317] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_XYYE/e800e2552f53b910154f366d4c3730d7_67026.utf8, line 43, warning: 126 characters of junk seen at toplevel
+[317] Biber.pm:133> INFO - WARNINGS: 2
