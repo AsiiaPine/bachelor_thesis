@@ -23,7 +23,7 @@ In Section \ref{lr_constructions}, an examination of the construction of multi-a
 Finally, in Section \ref{lr_conclusion}, the research gap in this field is identified.
 
 \section{Metrics}
-% ?????????????????????????????
+
 To align with the reader in the terminology used, this section presents the metrics and their definitions used for multi-axis force sensors.
 % In the section the metrics applied to the multi-axis force sensors are described for further 
 stiffness, nominal values, isotropy
@@ -31,7 +31,9 @@ In a coupled sensor an axis force component produces signal in more then one mea
 % isotropy - какой контекст
 %  взять характеристики датчика из учебника, которые подходят. Прочитать раздел с датчиками силы.
 \subsection{Isotropy}
-isotropy - exhibiting properties (such as velocity of light transmission) with the same values when measured along axes in all directions \cite{isotropic}
+Isotropy of a multiaxial sensor defines the difference in the measuring range of the sensor along different axes. The property is fully depends on the system's construction. 
+Based on the \cite[Tab. 2, 3, 4]{multi_axis_force_sensors_review} most multiaxial force sensors the isotropy is low mostly because the structure of the sensors is unsymmetrical.
+% isotropy - exhibiting properties (such as velocity of light transmission) with the same values when measured along axes in all directions \cite{isotropic}
 
 \subsection{Hysteresis}
 
@@ -42,8 +44,27 @@ The difference between the outputs is referred to as hysteresis error \cite{hand
     \includegraphics[width=0.5\textwidth]{/LR/hysteresis.png}
     \caption{Diagram illustrating the relationship between stimulus and signal in a system with hysteresis. Adapted from \cite[Fig. 2.11]{handbook_sensors}.}
     \label{fig:hysteresis}
-\end{figure}    
+\end{figure}
 
+
+The hysteresis calculated in the paper is defined as in manual published by the Missouri University of Science and Technology \cite{hysteresis_calc}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{/LR/hysteresis_calc.jpg}
+    \caption{Definition of main hysteresis points. Adapted from \cite[Fig. 3]{hysteresis_calc}.}
+    \label{fig:hysteresis_calc}
+\end{figure}
+\begin{equation}
+    X_m = \frac{X_{max} - X_{min}}{2} + X_{min}
+    \label{eq:hysteresis_midpoint_location}
+\end{equation}
+
+The equations (\ref{eq:hysteresis_midpoint_location}) and (\ref*{eq:hysteresis_calc}) define the hysteresis as a value variance compared to the value full scale.  
+
+\begin{equation}
+    \textit{Hysteresis} = \big| \frac{Y_{mn} - Y_{mp}}{Y_{max} - Y_{min}} \big|
+    \label{eq:hysteresis_calc}
+\end{equation}
 \subsection{Coupling}
 \label{lr_coupling}
 
@@ -63,7 +84,8 @@ Existing solutions for multi-axial force sensor structures are presented in the 
 \section{Pressure cells types}
 \label{lr_pressure_cell_types}
 The pressure sensors are the main measuring components used for multi-axial force sensors. The output of the sensors in mapped via transition function into the force/torque terms. 
-The choice of the measuring components defines the hysteresis, linearity, span and resolution of the whole system. Thereby, several pressure sensors types will be described in the subsection.
+The choice of the measuring components defines the hysteresis, linearity, span and resolution of the whole system. 
+Thereby, several pressure sensors types will be described in the subsection.
 
 \subsection{Piezoelectric sensor}
 Piezoelectric pressure sensor consists of a thin silicon diaphragm as elastic part and a piezoelectric gauge resistor \cite{handbook_sensors}.
@@ -81,7 +103,7 @@ Even when a multi crystal structure is used in the sensors, the total wave refle
 
 \subsection{Capacitive sensor}
 
-The capacitance of a flat capacitor can be determined using equation (\ref*{eq:capacitance}). 
+The capacitance of a flat capacitor can be determined using equation (\ref{eq:capacitance}). 
 This formula describes the connection between capacitance, plate area, and the distance between the plates of the device. 
 Changes in distance and area result in variations in capacitance, which is utilized in capacitance-based pressure sensors to measure changes in distance.
 The principle is as follows: when pressure is applied to the capacitor's plate and alters the distance $d$, the changes in capacitance are measured and converted into a signal.
@@ -89,6 +111,7 @@ The principle is as follows: when pressure is applied to the capacitor's plate a
     \label{eq:capacitance}
     C = \frac{\varepsilon_0 \varepsilon A}{d}
 \end{equation}
+
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{/LR/capacitive_sensors.png}
@@ -97,11 +120,14 @@ The principle is as follows: when pressure is applied to the capacitor's plate a
 \end{figure}
 
 Capacitive sensors can be monopolar, differential (utilizing two capacitors), or a capacitive bridge can be utilized (using four capacitors) \cite{handbook_sensors}.
-A typical capacitive pressure sensor is differential, with a diaphragm surface serving as the central plate, as depicted in Fig. \ref*{fig:capacitive_sensors}, creating a dual variable capacitor \cite{pressure_sens_calibration_stat_dyn}.
+A typical capacitive pressure sensor is differential, with a diaphragm surface serving as the central plate, as depicted in 
+Fig. \ref{fig:capacitive_sensors}, creating a dual variable capacitor \cite{pressure_sens_calibration_stat_dyn}.
 The capacitance changes when a load is applied to the diaphragm surface. 
 
-Capacitive pressure sensors have broad measurement range, high sensitivity, accuracy and reliability, absence of contamination risk, large range of working temperatures (-70 \textdegree C to 400 \textdegree C).
-The sensors are low-cost, highly sensitive devices mostly used in exceptional circumstances, such as miniature or even MEMS force sensors \cite*{multi_axis_force_sensors_review} and harsh environmental conditions.
+Capacitive pressure sensors have broad measurement range, high sensitivity, accuracy and reliability, absence of contamination risk, 
+large range of working temperatures (-70 \textdegree C to 400 \textdegree C).
+The sensors are low-cost, highly sensitive devices mostly used in exceptional circumstances, such as miniature or even 
+MEMS force sensors \cite{multi_axis_force_sensors_review} and harsh environmental conditions.
 
 Hysteresis 0.35 \% \cite{pressure_capac_hysteresis}, 1.7 \% \cite{pressure_capac_hysteresis_2}.
 
@@ -109,6 +135,7 @@ Hysteresis 0.35 \% \cite{pressure_capac_hysteresis}, 1.7 \% \cite{pressure_capac
 The principle behind Electrical Resistance Strain Gauges (ERSGs) is the change in resistance caused 
 by deformation, as explained in a study by official representative of Keller AG manufacturer \cite{keller_article}. 
 Stretching or compressing of the piezoresistive material results in a change in the electric resistance of the sensor 
+
 \cite{multi_axis_force_sensors_review}. 
 % When the piezoresistive material is stretched or compressed, 
 % it results in a change in the electric resistance of the sensor 
@@ -164,8 +191,10 @@ The properties associated with hysteresis and the sensor's nominal range are pri
 
 \end{figure}
 
-Other advantages of this type of pressure sensor, particularly important in certain industrial applications, include its long transmission distance and low chemical reactivity, making it ideal for operation in explosive-risk environments and intrinsically safe. 
-The sensors using this measuring principle have a response time of about 100 $\mu$s and an average force resolution of 0.1 N over a 200 N measurement range \cite{pressure_sens_calibration_stat_dyn}.
+Other advantages of this type of pressure sensor, particularly important in certain industrial applications, 
+include its long transmission distance and low chemical reactivity, making it ideal for operation in explosive-risk environments and intrinsically safe. 
+The sensors using this measuring principle have a response time of about 100 $\mu$s and an average force resolution of 0.1 N over a 200 N 
+measurement range \cite{pressure_sens_calibration_stat_dyn}.
 
 % TODO: continue
 The described characteristics of force sensor types force me to use the one in the research and try to apply the measurement principle in cells of my multi-axial force sensor.
@@ -173,7 +202,8 @@ The described characteristics of force sensor types force me to use the one in t
 \section{Calibration}
 \label{lr_calibration}
 The multi-axis calibration has static and dynamic methods based on the applied force/pressure \cite{Static_Dynamic_Calibration_FlexiForce, pressure_sens_calibration_stat_dyn}.
-A load usually is said to be static, if it remains constant during the measurement process. Accordingly, a load is said to be dynamic if it varies significantly in a short amount of time, usually, several times during the measurement.
+A load usually is said to be static, if it remains constant during the measurement process. 
+Accordingly, a load is said to be dynamic if it varies significantly in a short amount of time, usually, several times during the measurement.
 The dynamic calibration is applied to sensors designed for highly dynamic environment with pressure pulsations or to determine the sensor response time \cite{pressure_sens_calibration_stat_dyn}. 
 In my research the static calibration is sufficient, therefore, lets focus on the methods used in the multi-axis force sensors development.
 
@@ -190,7 +220,8 @@ The method defines two limitations \cite{Deep_Learning_Calib}:
 
 % Нагнетание датчика мб надо добавить
 In other words, the sensor output has to be linear to applied load with fully decoupled axes. 
-The conditions are hard to satisfy, therefore many researches about structural sensors decoupling exists \cite{beam_structure_math,decoupling_sliding_structure,shape_optimization_decoupled,modal_sensor}.
+The conditions are hard to satisfy, therefore many researches about structural sensors decoupling exists 
+\cite{beam_structure_math,decoupling_sliding_structure,shape_optimization_decoupled,modal_sensor}.
 
 Neural-networks based 
 
@@ -203,7 +234,8 @@ are to be offset corrected in unloaded condition prior to the calibration test.
 
 For force loading the force is applied within the neutral axes of the load cell.
 
-In order to keep accuracy and to prevent  misalignment it should be avoided to exert torque within the mounting plane between load cell and fixture. This load case should be last in the sequence. It can cause rotation of the load cell within the fixture. Thus subsequently exerted loads can be shifted from the intended load axis
+In order to keep accuracy and to prevent  misalignment it should be avoided to exert torque within the mounting plane between load cell and fixture. 
+This load case should be last in the sequence. It can cause rotation of the load cell within the fixture. Thus subsequently exerted loads can be shifted from the intended load axis
 
 \subsubsection{misalignment determination}
 
