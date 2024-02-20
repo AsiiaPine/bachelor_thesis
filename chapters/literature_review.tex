@@ -12,15 +12,110 @@
 % Добавить часть с калибровкой и базовыми параметрами для датчиков силы.(мб в самом начале, давать термины, указать, как они измеряются). Потом про типы датчиков по типу измерения, потом конструкции.
 
 The objective of this chapter is to conduct a literature review on the development of six degrees of freedom (DOF) force sensors. 
-In Section \ref{lr_constructions}, an examination of the construction of multi-axial load sensor beams is presented. 
 Section \ref{lr_pressure_cell_types} defines the types of pressure sensors used as measurement cells for multi-axis force and torque sensors, 
 along with their limitations. 
+In Section \ref{lr_constructions}, an examination of the construction of multi-axial load sensor beams is presented. 
 % Section 2.4 focuses specifically on photointerrupter pressure cells and investigates the measurement techniques proposed
 %  for them. 
 
 % \ref{lr_calibration} The current section focus on the decoupling methods based on calibration. 
 
 Finally, in Section \ref{lr_conclusion}, the research gap in this field is identified.
+\section{Pressure cells types}
+
+\label{lr_pressure_cell_types}
+% датчики стресса и 
+% добавить пьезоэлектрический датчик, добавить 
+\subsection{Piezoresistors}
+\subsection{Capacitive sensor}
+The capacitance of a flat capacitor can be determined using equation (\ref*{eq:capacitance}). 
+This formula describes the connection between capacitance, plate area, and the distance between the plates of the device. 
+Changes in distance and area result in variations in capacitance, which is utilized in capacitance-based pressure sensors to measure changes in distance.
+The principle is as follows: when pressure is applied to the capacitor's plate and alters the distance $d$, the changes in capacitance are measured and converted into a signal.
+\begin{equation}
+    \label{eq:capacitance}
+    C = \frac{\varepsilon_0 \varepsilon A}{d}
+\end{equation}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{/LR/capacitive_sensors.png}
+    \caption{Principle of operation for a flat-plate capacitive sensor. Adapted from \cite[Fig. 7.6]{handbook_sensors}.}
+    \label{fig:capacitive_sensors}
+\end{figure}
+
+
+
+Capacitive sensors can be monopolar, differential (utilizing two capacitors), or a capacitive bridge can be utilized (using four capacitors) \cite{handbook_sensors}.
+Used in the systems with low pressure. It can be protected against overpressure using mechanical stops
+Mights 
+
+
+
+\subsection{Electrical Resistance Strain Gauge}
+The principle behind Electrical Resistance Strain Gauges (ERSGs) is the change in resistance caused 
+by deformation, as explained in a study by official representative of Keller AG manufacturer \cite{keller_article}. 
+Stretching or compressing of the piezoresistive material results in a change in the electric resistance of the sensor 
+\cite{multi_axis_force_sensors_review}. 
+% When the piezoresistive material is stretched or compressed, 
+% it results in a change in the electric resistance of the sensor 
+% \cite{multi_axis_force_sensors_review}. 
+In order to accurately measure small changes in geometry, 
+strain-gauge sensors are typically connected to a Wheatstone bridge.
+
+Since the creation of the multi-axis force sensor in the 1970s, 
+the strain-resistive pressure sensor has remained a classic measuring device \cite{3d_FBG_sensor}. 
+However, these solutions tend to be expensive and require additional surface treatment of the substrate, 
+as well as high-quality technology for bonding with a strain-resistant component 
+\cite{my_love_pressure_photosensor, fingertip_based_FBG}. Load cells, which utilize strain gauges, 
+face challenges in signal processing. These challenges include sensitivity to temperature and magnetic noise, 
+the need for regular calibration, and difficulties in maintenance after the substrate undergoes plastic deformation.
+% TODO: rephrase
+Regarding response times, typical values of this measuring principle range from 1 to 10 ms. \cite{pressure_sens_calibration_stat_dyn}
+
+\subsection{Fiber Bragg grating}
+Fiber Bragg gratings (FBG) are the most popular optical pressure measurement methods. The FBG sensor is a specific type 
+of distributed Bragg reflector that is created within a short section of optical fiber. 
+Its function is to selectively reflect certain wavelengths of light while allowing all other wavelengths to pass through. 
+When subjected to strain or temperature variations, the reflected wavelengths of an FBG shift accordingly. 
+The magnitude of this wavelength shift is directly proportional to the applied load.
+Several scientific papers, including Xiong L. et al. \cite{3d_FBG_sensor} and Guo Yu \cite{fingertip_based_FBG}, 
+have documented the development of six-axis force sensors utilizing a fiber Bragg lattice. 
+This design offers several advantages over strain-resistant sensors, such as immunity to electromagnetic interference, 
+a compact profile, and lightweight construction. However, important to note that FBG-based sensors 
+necessitate significant investments in optical signal demodulation equipment \cite{3d_FBG_sensor}, 
+as well as surface treatment processes.
+
+\subsection{Photointerrupter cell with barrier}
+
+The optocoupler pressure sensor comprises three main components: a light emitter, two light receivers, and an interrupter positioned between emitter and one of the receivers \cite{my_love_pressure_photosensor}. 
+When a load is applied to the sensor, the interrupter plate shifts, thereby altering the rate of light intensity on the measuring diode \cite{1990_optic}.
+The signal from the second receiver is a reference and enables the cancellation of the optocoupler characteristics change, that effects whole system equally, caused by temperature, dirt and etc.
+
+In the mathematical model of this type of cell, the barrier can be considered as a spring, making the applied force proportional to the deformation of the barrier.
+
+This type of sensor has negligible hysteresis and repeatability error, since the vane movement amplitude to close the measuring diode is very small \cite*{pressure_sens_calibration_stat_dyn}.
+Additionally, it offers a compact geometry and is cost-effective. % Moreover, since the optical surface usually is 
+
+Compared to ERSG sensors, the photointerrupter measurement cell is less susceptible to electrical interference \cite*{my_love_pressure_photosensor}. 
+
+The properties associated with hysteresis and the sensor's nominal range are primarily influenced by the type of barrier utilized \cite{my_love_pressure_photosensor}.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.5\textwidth]{optical_force_sensor.png}
+\caption{Example of an optical pressure sensor. Adapted from \cite[Fig. 5]{pressure_sens_calibration_stat_dyn}.}
+\label{fig:optical_sensor_arrangement}
+
+\end{figure}
+
+% TODO: rephrase
+Other advantages of this type of pressure sensor that are particularly important in some industrial applications are its long transmission distance and the low chemical reactivity of the material, which is ideal
+for operating in environments with a risk of explosion, in addition to being intrinsically safe [25]. Regarding response time, typical values of this measuring principle can reach values about $100 \mu$s. \cite{pressure_sens_calibration_stat_dyn}
+
+% TODO: rephrase
+In terms of force, the sensor has an average resolution of 0.1 N over a 200 N measurement range \cite*{OPTIC_CELL_FOR_HAND}.
+
+% TODO: continue
+The described characteristics of the sensor type force me to use the one in the research and try to apply the measurement principle in cells of my multi-axial force sensor.
 
 \section{Metrics}
 stiffness, nominal values, isotropy
@@ -171,72 +266,6 @@ This approach allows for the replacement of failed structural elements, enhancin
 % \end{enumerate} 
 
 % Перед констракшеном
-\section{Pressure cells types}
-\label{lr_pressure_cell_types}
-% датчики стресса и 
-% добавить пьезоэлектрический датчик, добавить 
-\subsection{Electrical Resistance Strain Gauge}
-The principle behind Electrical Resistance Strain Gauges (ERSGs) is the change in resistance caused 
-by deformation, as explained in a study by official representative of Keller AG manufacturer \cite{keller_article}. 
-Stretching or compressing of the piezoresistive material results in a change in the electric resistance of the sensor 
-\cite{multi_axis_force_sensors_review}. 
-% When the piezoresistive material is stretched or compressed, 
-% it results in a change in the electric resistance of the sensor 
-% \cite{multi_axis_force_sensors_review}. 
-In order to accurately measure small changes in geometry, 
-strain-gauge sensors are typically connected to a Wheatstone bridge.
-
-Since the creation of the multi-axis force sensor in the 1970s, 
-the strain-resistive pressure sensor has remained a classic measuring device \cite{3d_FBG_sensor}. 
-However, these solutions tend to be expensive and require additional surface treatment of the substrate, 
-as well as high-quality technology for bonding with a strain-resistant component 
-\cite{my_love_pressure_photosensor, fingertip_based_FBG}. Load cells, which utilize strain gauges, 
-face challenges in signal processing. These challenges include sensitivity to temperature and magnetic noise, 
-the need for regular calibration, and difficulties in maintenance after the substrate undergoes plastic deformation.
-% TODO: rephrase
-Regarding response times, typical values of this measuring principle range from 1 to 10 ms. \cite{pressure_sens_calibration_stat_dyn}
-
-\subsection{Fiber Bragg grating}
-Fiber Bragg gratings (FBG) are the most popular optical pressure measurement methods. The FBG sensor is a specific type 
-of distributed Bragg reflector that is created within a short section of optical fiber. 
-Its function is to selectively reflect certain wavelengths of light while allowing all other wavelengths to pass through. 
-When subjected to strain or temperature variations, the reflected wavelengths of an FBG shift accordingly. 
-The magnitude of this wavelength shift is directly proportional to the applied load.
-Several scientific papers, including Xiong L. et al. \cite{3d_FBG_sensor} and Guo Yu \cite{fingertip_based_FBG}, 
-have documented the development of six-axis force sensors utilizing a fiber Bragg lattice. 
-This design offers several advantages over strain-resistant sensors, such as immunity to electromagnetic interference, 
-a compact profile, and lightweight construction. However, important to note that FBG-based sensors 
-necessitate significant investments in optical signal demodulation equipment \cite{3d_FBG_sensor}, 
-as well as surface treatment processes.
-
-\subsection{Photointerrupter cell with barrier}
-
-The optocoupler pressure sensor comprises three main components: a light emitter, two light receivers, and an interrupter positioned between emitter and one of the receivers \cite{my_love_pressure_photosensor}. 
-When a load is applied to the sensor, the interrupter plate shifts, thereby altering the rate of light intensity on the measuring diode \cite{1990_optic}.
-The signal from the second receiver is a reference and enables the cancellation of the optocoupler characteristics change, that effects whole system equally, caused by temperature, dirt and etc.
-
-In the mathematical model of this type of cell, the barrier can be considered as a spring, making the applied force proportional to the deformation of the barrier.
-
-This type of sensor has negligible hysteresis and repeatability error, since the vane movement amplitude to close the measuring diode is very small \cite*{pressure_sens_calibration_stat_dyn}.
-Additionally, it offers a compact geometry and is cost-effective. % Moreover, since the optical surface usually is 
-
-Compared to ERSG sensors, the photointerrupter measurement cell is less susceptible to electrical interference \cite*{my_love_pressure_photosensor}. 
-
-The properties associated with hysteresis and the sensor's nominal range are primarily influenced by the type of barrier utilized \cite{my_love_pressure_photosensor}.
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.3\textwidth]{optical_force_sensor.png}
-\caption{Example of an optical pressure sensor}
-\label{fig:optical_sensor_arrangement}
-
-\end{figure}
-
-% TODO: rephrase
-Other advantages of this type of pressure sensor that are particularly important in some industrial applications are its long transmission distance and the low chemical reactivity of the material, which is ideal
-for operating in environments with a risk of explosion, in addition to being intrinsically safe [25]. Regarding response time, typical values of this measuring principle can reach values about $100 \mu$s. \cite{pressure_sens_calibration_stat_dyn}
-
-% TODO: rephrase
-In terms of force, the sensor has an average resolution of 0.1 N over a 200 N measurement range \cite*{OPTIC_CELL_FOR_HAND}.
 
 \section{Conclusion}
 \label{lr_conclusion}

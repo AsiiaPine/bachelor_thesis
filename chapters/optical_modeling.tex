@@ -7,7 +7,7 @@ In optical pressure sensing, two PTs are utilized: one as a measuring device and
 A barrier is positioned between the measuring PT and the LED. 
 When pressure is applied to the barrier, it shifts and obstructs a portion of the light from the LED, thereby altering the induced current on the measuring PT.
 
-The purpose of the chapter is to find the function $F = f(I_{\textit{mes pt}})$, which describes the relation between current on the measuring phototransistor $I_{pt}$ and load $F$, applied to the barrier.
+The purpose of the chapter is to find the function $F = f(i_{\textit{mes pt}})$, which describes the relation between current on the measuring phototransistor $i_{\textit{mes pt}}$ and load $F$, applied to the barrier.
 % Lets define the physical processes which are caused by change of the load on the PB. 
 
 For the project I use a PT module (EE-SX1321, OMRON). 
@@ -27,13 +27,13 @@ In the upcoming chapter, the PB will be simplified to a spring element with an a
 This simplification enables the use of Hooke's law $F = k\Delta d$, where F represents the load applied 
 to the PB, $\Delta d$ denotes the shift of the barrier's aperture, and k represents the 
 characteristic of the spring. 
-By using this law, the function $F = f(i_{\textit{mes pt}})$ can be updated to $F = k \Delta d = k f_d(I_{\textit{mes pt}})$..
+By using this law, the function $F = f(i_{\textit{mes pt}})$ can be updated to $F = k \Delta d = k f_d(i_{\textit{mes pt}})$..
 The value of k will be determined through finite element analysis (FEA) in the subsequent chapter. 
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{illustration_of_PB_shift.jpg}
-  \caption{Model of PT-based load sensing mechanism. Adapted from \cite[Fig. 1]{my_love_pressure_photosensor}}
+  \caption{Model of PT-based load sensing mechanism. Adapted from \cite[Fig. 1]{my_love_pressure_photosensor}.}
   \label{fig:load_pt_based_mechanism}
   \end{figure}
 
@@ -67,7 +67,7 @@ As mentioned, the optocoupler's LED and PT are divided into small cells by hardw
       \label{fig:sketch_oblique}
       \caption*{(b)}
     \end{subfigure}
-  \caption{Geometrical relationships between LED (green) and PT(purple): (a) YZ plane sketch, (b) oblique sketch}
+  \caption{Geometrical relationships between LED (green) and PT(purple): (a) YZ plane sketch, (b) oblique sketch.}
   \label{fig:LED_PT_scetch}
 \end{figure}
 
@@ -116,7 +116,9 @@ On the Fig. \ref*{fig:led_sim_res_one_pt} results of the model simulation with o
 
 At the next step lets add to the model the PB.
 
-$\hdots$
+
+
+% $\hdots$
 
 \begin{figure}[H]
 
@@ -141,7 +143,7 @@ $\hdots$
     \label{fig:min_0_25_y_barrier}
     \caption*{(c)}
   \end{subfigure}
-  \caption{Simulation with PB results for different barrier aperture shift: (a) 0.15 mm, (b) 0.4 mm, (c) 0.65 mm}
+  \caption{Simulation with PB results for different barrier aperture shift: (a) 0.15 mm, (b) 0.4 mm, (c) 0.65 mm.}
   \label{fig:LED_PT_sim_bar}
 \end{figure}
 
