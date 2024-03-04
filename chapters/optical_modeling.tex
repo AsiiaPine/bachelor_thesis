@@ -45,6 +45,7 @@ Limitations of the mathematical model:
     \item PB will be simplified to the spring element with aperture. When a force is applied to the PB, the aperture will be shifted relative to the main optical axis of the light source.
 \end{itemize}
 
+\section{Optocoupler}
 % \section{Geometric and optical model}
 % ------------------------------------------
 % IlluminanceFigure
@@ -103,8 +104,10 @@ $x$ and $y$ - coordinates of the PT.
 
 From the geometrical relationship, the total PT radiation flux is the integral of the LED ($A_{LED}$) and PT ($A_{PT}$) areas:
 
-$$\Phi = \int_{A_{LED}} \int_{A_{PT}} I(x_s, y_s, x_r, y_r)d A_{LED} d A_{PT}$$
-
+\begin{equation}
+  \Phi = \int_{A_{LED}} \int_{A_{PT}} I(\vec{r})d A_{LED} d A_{PT}
+  \label{eq:flux_calc}
+\end{equation}
 \begin{figure}[H]
     \includegraphics[width=0.5\textwidth]{output_with_one_pt.png}
       \centering
@@ -114,12 +117,81 @@ $$\Phi = \int_{A_{LED}} \int_{A_{PT}} I(x_s, y_s, x_r, y_r)d A_{LED} d A_{PT}$$
 
 On the Fig. \ref{fig:led_sim_res_one_pt} results of the model simulation with one PT and a LED are presented.
 
-At the next step lets add to the model the PB.
+% At the next step lets add to the model the PB.
+\section{Photobarrier}
+The Photo Barrier (PB) will be simplified to a cuboid shape, which will partially cover the phototransistor from the LED light. The relationship between the optocoupler and the PB is shown in Figure \ref{fig:load_pt_based_mechanism}. 
+The stimulus for the pressure sensor depends on the shift of the photobarrier 
+as its tip moves alongside the measuring PT. 
+The PT module used (EE-SX1321, OMRON) has small dimensions, 
+so the barrier shift is limited by the height of the PT, which is 0.76 mm as shown in Fig. \ref{fig:microscopic_image}. 
+When the bottom edge of the PB reaches the borders of the PT, 
+the intensity measurements will remain constant.
+
+% To calculate the intensity of light on the PT cells with respect to PB, lets define geometric relationship between the amount of light passed to the receiver from a LED cell when a barrier is shifted.
+% The model defines extremum $\boldsymbol{y_{\textit{PT}ext}}$ coordinate as $\boldsymbol{y}$ coordinate of barrier shadow on the PT. 
+% So, the PB cells above the $\boldsymbol{y_{\textit{PT}ext}}$ do not receive light from the LED cell Fig. \ref{fig:extremum_ys_cell}.
+
+% The model use not the $\boldsymbol{y_{\textit{PT}ext}}$, but the  $\boldsymbol{y_{\textit{LED}ext}}$ which is the coordinate of the LED the emmited light of which reaches the PT cell.
+To calculate the intensity of light on the PT cells in relation to the PB, 
+we define the geometric relationship between the amount of light transmitted 
+to the receiver from an LED cell when a barrier is shifted. 
+The model defines the extremum $\boldsymbol{y_{\textit{PT}ext}}$ coordinate as 
+the $\boldsymbol{y}$ coordinate of the barrier shadow on the PT. 
+Therefore, the PB cells above the $\boldsymbol{y_{\textit{PT}ext}}$ do not receive light
+ from the LED cell.
 
 
+The model uses not the $\boldsymbol{y_{\textit{PT}ext}}$, but the $\boldsymbol{y_{\textit{LED}ext}}$, 
+which is the coordinate of the LED that emits light reaching the PT cell, as shown in Figure \ref{fig:extremum_ys_cell}..
 \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{OM/barrier_geom_bott.jpg}
+    \centering
+    \label{fig:extremum_ys_cell_bottom}
+    \caption*{(a)}
+  \end{subfigure}
+    % \hfill
+  \begin{subfigure}[b]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{OM/barrier_geom_upp.jpg}
+    \label{fig:extremum_ys_cell_upp}
+    \caption*{(b)}
+  \end{subfigure}
+  \caption{Geometrical relationship between $\boldsymbol{y_{\textit{LED}ext}}$, photobarrier and phototransistor cells: (a) $y_{PT} > y_{PB}$, (b)  $y_{PT} < y_{PB}$ }
+  \label{fig:extremum_ys_cell}
 
 \end{figure}
+
+The extremum $\boldsymbol{y_{\textit{LED}ext}}$ is calculated for each PT cell is defined as the following:
+
+$$
+  \Delta y = y_{PB} - y_{PT}\\
+$$
+$$
+  \begin{cases}
+    \Delta z = z_{PB} + (\omega / 2), &  \text{if }y_{PT} > y_{PB}\\
+    \Delta z = z_{PB} - (\omega / 2)  & \text{otherwise}
+  \end{cases}\\
+$$
+$$
+  \boldsymbol{y_{\textit{LED}ext}} = \frac{\Delta y  l_0}{\Delta z}
+$$
+
+where $y_{PB}$, $z_{PB}$ - y, z coordinated of PB cell, 
+$y_{PT}$ - y coordinate of the PT cell,
+$l_0$ - distance between PT and LED,
+$\omega$ - barrier thickness.
+
+From Fig. \ref{fig:extremum_ys_cell} one can see that the light from a LED cell with coordinated ($ x_{LED}, y_{LED}$) reaches the PT cell if $y_{LED} < \boldsymbol{y_{\textit{LED}ext}}$.
+Therefore the total PT radiation flux Eq. \ref{eq:flux_calc} updates up to:
+
+\begin{equation}
+  \Phi = \int_{A_{LED}} \int_{A_{PT}} I(\vec{r})d A_{LED} d A_{PT} = \sum_{}^{A_{LED}} \sum_{}^{A_{PT}} \begin{cases}
+    I(\vec{r}), & \text{if }y_{LED} < \boldsymbol{y_{\text{LED}ext}}\\
+    0, & \text{otherwise}
+  \end{cases}
+  \label{eq:flux}
+\end{equation}
 
 \begin{figure}[H]
   \centering
@@ -140,9 +212,13 @@ At the next step lets add to the model the PB.
     \label{fig:min_0_25_y_barrier}
     \caption*{(c)}
   \end{subfigure}
+  \label{fig:LED_PT_simulation_vs_bar}
   \caption{Simulation with PB results for different barrier aperture shift: (a) 0.15 mm, (b) 0.4 mm, (c) 0.65 mm.}
-  \label{fig:LED_PT_sim_bar}
 \end{figure}
+
+
+On the Fig. \ref{fig:LED_PT_simulation_vs_bar} the change of flux on the phototransistor is presented. The results are correlateed to the results, received by the researches in 
+\cite{my_love_pressure_photosensor}.
 
 % \begin{figure}[H]
 %     \includegraphics[width=0.5\textwidth]{figs/arrangement_of_LED_PT.jpg}
