@@ -16,16 +16,52 @@ The section describes the electrical circuit and optical barrier designs.
 %   \label{fig:optopair_scheme}
 %   \caption{General design of an optopair.}
 % \end{figure}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{ED/dual_optopair_scheme.jpg}
-    \label{fig:dual_optopair_scheme}
+    \label{fig:optopair_scheme}
     \caption{Schematic of a dual-photointerrupter sensor circuit.}
   \end{figure}
 
 After testing the voltage measurement with oscilloscope, 
-I decided to simplify the circuit presented in the research \cite{my_love_pressure_photosensor} up to the scheme \ref{fig:dual_optopair_scheme} based on my experiments with the optopair component.
+I decided to simplify the circuit presented in the research \cite{my_love_pressure_photosensor} up to the scheme \ref{fig:optopair_scheme} based on my experiments with the optopair component.
 The current of the LED is limited to $I_F$ by the resistor $R_F$. %The PT maintain voltage 
 
 \subsection{Barrier design}
-The dimentions of the PT are provided in \ref{fig:microscopic_image}
+
+Based on the provided design by the authors \cite{my_love_pressure_photosensor}, and the dimensions of the PT \ref{fig:microscopic_image}, I created the barrier and used the Finite Element Analysis in Siemens NX Software simulation to check possible force load ranges for the used geometry \ref{fig:different_materials_nx}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[a]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{barrier_NX/Camera Roll/acrylic_10N.png}
+    \label{fig:different_materials_nx:acrylic_10N}
+    \caption*{(a)}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{barrier_NX/Camera Roll/ABS.png}
+    \label{fig:different_materials_nx:ABS}
+    \caption*{(b)}
+  \end{subfigure}
+  
+  \begin{subfigure}[c]{\textwidth}
+    \begin{subfigure}[1]{0.3\textwidth}
+      \includegraphics[width=\textwidth]{barrier_NX/Camera Roll/steel_ст3.png}
+      \caption*{(1)}
+    \end{subfigure}
+    \begin{subfigure}[2]{0.3\textwidth}
+      \includegraphics[width=\textwidth]{barrier_NX/Camera Roll/steel_ст3_300N.png}
+      \caption*{(2)}
+    \end{subfigure}
+    \begin{subfigure}[3]{0.3\textwidth}
+      \includegraphics[width=\textwidth]{barrier_NX/Camera Roll/steel_ст3_500N.png}
+      \caption*{(3)}
+    \end{subfigure}
+    \caption*{(c)}
+    \label{fig:different_materials_nx:steel}
+  \end{subfigure}
+  \caption{Finite Element analysis results of the photobarrier shift from Siemens NX simulation (a) Acrylic resin 10 N, (b) ABS plastic 10 N, (c) steel with different loads: (1) 10 N, (2) 300 N, (3) 500 N}
+  \label{fig:different_materials_nx}
+\end{figure}
+

@@ -1,0 +1,8 @@
+\section{Converting voltage to barrier displacement}
+\label{section:Converting_voltage_to_barrier_displacement}
+
+To read the pressure sensor voltage output I used micro node from Racoon lab \cite{micro_node}. 
+The node uses stm32f103 as system-on-chip which has its own 12-bits Analog-to-Digital Converter (ADC) with maximum value 4096 which corresponds to  $V_{ADC_{max}}$3.3 V.
+The resolution of the micro node ADC reading is $\frac{3.3 V}{4096} = 0.8 mV$. 
+The full measurement range of the pressure sensor $\Delta V_{mes}$ is 0.9 V (the difference between the voltage when $PT_{mes}$ is open and closed by the barrier), the number of posiible digital values of the $V_{mes}$ range: $\frac{0.9 V}{0.8 m V} = 1125$ 
+Since the barrier shift is limited by 0.76 mm, the shift resolution of the sensor is $\frac{\Delta y_{PB}}{1125} = 0.67 \mu m$
