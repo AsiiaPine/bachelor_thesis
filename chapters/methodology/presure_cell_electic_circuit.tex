@@ -1,0 +1,31 @@
+\section{Modeling of pressure cell}
+\label{section:presure_cell_electic_circuit}
+
+The main focus of the section is to describe the design pressure cell, which is the main measurement component for multiaxial force sensor.
+As mentioned in the section on \nameref{section:optical_modeling}, I used the pressure cell design described in the study \cite{my_love_pressure_photosensor} as a guide. 
+I selected the photomicrosensor (OMRON EE-SX1321) as the optopair, similar to the authors, because it includes one LED and two phototransistors, 
+eliminating the need for separate design and calibration of a reference phototransistor subcircuit. 
+This step is important for optocoupler pressure sensor types to ensure that the reference and measurement phototransistors behave identically and any changes in optocoupler characteristics are minimized.
+
+The section describes the electrical circuit and optical barrier designs.
+
+\subsection{Electric circuit design}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=\textwidth]{ED/optopair_scheme.jpg}
+%   \label{fig:optopair_scheme}
+%   \caption{General design of an optopair.}
+% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{ED/dual_optopair_scheme.jpg}
+    \label{fig:dual_optopair_scheme}
+    \caption{Schematic of a dual-photointerrupter sensor circuit.}
+  \end{figure}
+
+After testing the voltage measurement with oscilloscope, 
+I decided to simplify the circuit presented in the research \cite{my_love_pressure_photosensor} up to the scheme \ref{fig:dual_optopair_scheme} based on my experiments with the optopair component.
+The current of the LED is limited to $I_F$ by the resistor $R_F$. %The PT maintain voltage 
+
+\subsection{Barrier design}
+The dimentions of the PT are provided in \ref{fig:microscopic_image}
